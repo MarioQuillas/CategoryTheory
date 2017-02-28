@@ -1,6 +1,8 @@
 using System;
 using System.IO;
+using System.Net.Http;
 using System.Text;
+using System.Threading.Tasks;
 using GeneralThings.Monoids;
 
 namespace GeneralThings.MoreMonads
@@ -82,7 +84,7 @@ namespace GeneralThings.MoreMonads
         {
             using (HttpClient httpClient = new HttpClient())
             {
-                IO<Task> query = from unit1 in IO(() => Console.WriteLine("URI:")) // IO<Unit>. 
+                IO<Task<>> query = from unit1 in IO(() => Console.WriteLine("URI:")) // IO<Unit>. 
                                  from uri in IO(Console.ReadLine) // IO<string>.
                                  from unit2 in IO(() => Console.WriteLine("File path:")) // IO<Unit>.
                                  from filePath in IO(Console.ReadLine) // IO<string>.
