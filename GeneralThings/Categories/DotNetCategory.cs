@@ -1,9 +1,4 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-
-namespace GeneralThings
+namespace GeneralThings.Categories
 {
     //public partial class DotNetCategory : ICategory<Type, Delegate>
     //{

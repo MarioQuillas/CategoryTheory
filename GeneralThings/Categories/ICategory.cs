@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace GeneralThings
+namespace GeneralThings.Categories
 {
     public interface ICategory<TObject, TMorphism>
     {

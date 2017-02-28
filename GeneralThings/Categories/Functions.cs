@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace GeneralThings
+namespace GeneralThings.Categories
 {
     public static partial class Functions
     {

@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq.Expressions;
 
-namespace GeneralThings
+namespace GeneralThings.Categories
 {
     public class Int32Category : ICategory<int, BinaryExpression>
     {
