@@ -32,4 +32,6 @@ namespace GeneralThings.Monads
             string result = query.Item1; // Query result.
         }
     }
+
+
 }
