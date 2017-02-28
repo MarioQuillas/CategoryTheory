@@ -121,4 +121,7 @@ namespace GeneralThings.ApplicativeFunctor
         public static TApplicativeFunctor<Unit> Unit<TApplicativeFunctor<>>(Unit unit = default(Unit))
             where TApplicativeFunctor<> : IApplicativeFunctor<TApplicativeFunctor<>> => unit.Wrap();
     }
+
+
+
 }
