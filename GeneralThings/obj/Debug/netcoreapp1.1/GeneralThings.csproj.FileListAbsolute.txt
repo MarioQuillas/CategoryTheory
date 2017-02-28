@@ -1,0 +1,9 @@
+C:\MyGithub\CategoryTheory\GeneralThings\bin\Debug\netcoreapp1.1\Microsoft.DiaSymReader.Native.x86.dll
+C:\MyGithub\CategoryTheory\GeneralThings\bin\Debug\netcoreapp1.1\Microsoft.DiaSymReader.Native.amd64.dll
+C:\MyGithub\CategoryTheory\GeneralThings\bin\Debug\netcoreapp1.1\GeneralThings.deps.json
+C:\MyGithub\CategoryTheory\GeneralThings\bin\Debug\netcoreapp1.1\GeneralThings.dll
+C:\MyGithub\CategoryTheory\GeneralThings\bin\Debug\netcoreapp1.1\GeneralThings.pdb
+C:\MyGithub\CategoryTheory\GeneralThings\obj\Debug\netcoreapp1.1\GeneralThings.csprojResolveAssemblyReference.cache
+C:\MyGithub\CategoryTheory\GeneralThings\obj\Debug\netcoreapp1.1\GeneralThings.AssemblyInfo.cs
+C:\MyGithub\CategoryTheory\GeneralThings\obj\Debug\netcoreapp1.1\GeneralThings.dll
+C:\MyGithub\CategoryTheory\GeneralThings\obj\Debug\netcoreapp1.1\GeneralThings.pdb
