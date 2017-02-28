@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using GeneralThings.Categories;
 
 namespace GeneralThings.Monoids
 {
