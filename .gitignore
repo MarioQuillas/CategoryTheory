@@ -1,0 +1,3 @@
+*.suo
+*.cache
+GeneralThings/obj/GeneralThings.csproj.nuget.g.props

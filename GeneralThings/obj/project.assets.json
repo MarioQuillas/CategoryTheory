@@ -7217,15 +7217,15 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\mqs\\.nuget\\packages\\": {}
+    "C:\\Users\\mquil\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\MyGitHub\\CategoryTheory\\GeneralThings\\GeneralThings.csproj",
+      "projectUniqueName": "C:\\MyGithub\\CategoryTheory\\GeneralThings\\GeneralThings.csproj",
       "projectName": "GeneralThings",
-      "projectPath": "C:\\MyGitHub\\CategoryTheory\\GeneralThings\\GeneralThings.csproj",
-      "outputPath": "C:\\MyGitHub\\CategoryTheory\\GeneralThings\\obj\\",
+      "projectPath": "C:\\MyGithub\\CategoryTheory\\GeneralThings\\GeneralThings.csproj",
+      "outputPath": "C:\\MyGithub\\CategoryTheory\\GeneralThings\\obj\\",
       "projectStyle": "PackageReference",
       "originalTargetFrameworks": [
         "netcoreapp1.1"
