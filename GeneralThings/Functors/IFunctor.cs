@@ -73,7 +73,8 @@ namespace GeneralThings.Functors
     }
 
     /// <summary>
-    /// In .NET, this equivalent version of Select is exactly the LINQ query method Select. The following is the comparison of functor Select method and LINQ Select method:
+    /// In .NET, this equivalent version of Select is exactly the LINQ query method Select. 
+    /// The following is the comparison of functor Select method and LINQ Select method:
     /// </summary>
     public static partial class EnumerableExtensions // IEnumerable<T> : IFunctor<IEnumerable<>>
     {

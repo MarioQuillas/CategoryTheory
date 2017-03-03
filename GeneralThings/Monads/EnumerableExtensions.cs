@@ -36,9 +36,10 @@ namespace GeneralThings.Monads
             this IEnumerable<TSource> source,
             Func<TSource, IEnumerable<TSelector>> selector,
             Func<TSource, TSelector, TResult> resultSelector) =>
-                (from value in source
-                 select (from result in selector(value)
-                         select resultSelector(value, result))).Multiply();
+        (from value in source
+            select (from result in selector(value)
+                select resultSelector(value, result))).Multiply();
+
         // Compiled to:
         // source.Select(value => selector(value).Select(result => resultSelector(value, result))).Multiply();
 
@@ -51,9 +52,10 @@ namespace GeneralThings.Monads
         // Select: (TSource -> TResult) -> (IEnumerable<TSource> -> IEnumerable<TResult>).
         public static Func<IEnumerable<TSource>, IEnumerable<TResult>> Select<TSource, TResult>(
             Func<TSource, TResult> selector) => source =>
-                from value in source
-                from result in value.Enumerable()
-                select result;
+            from value in source
+            from result in value.Enumerable()
+            select result;
+
         // source.SelectMany(Enumerable, (result, value) => value);
 
         // Multiply: IEnumerable<IEnumerable<TSource>> -> IEnumerable<TSource>
@@ -61,6 +63,7 @@ namespace GeneralThings.Monads
             from source in sourceWrapper
             from value in source
             select value;
+
         // sourceWrapper.SelectMany(source => source, (source, value) => value);
 
         // Unit: TSource -> IEnumerable<TSource>
@@ -88,7 +91,6 @@ namespace GeneralThings.Monads
         }
 
 
-
         //internal static void MonoidLaws()
         //{
         //    IEnumerable<int> source = new int[] { 0, 1, 2, 3, 4 };
@@ -105,28 +107,28 @@ namespace GeneralThings.Monads
         //}
 
         internal static void Workflow<T1, T2, T3, T4>(
-    Func<IEnumerable<T1>> source1,
-    Func<IEnumerable<T2>> source2,
-    Func<IEnumerable<T3>> source3,
-    Func<T1, T2, T3, IEnumerable<T4>> source4)
+            Func<IEnumerable<T1>> source1,
+            Func<IEnumerable<T2>> source2,
+            Func<IEnumerable<T3>> source3,
+            Func<T1, T2, T3, IEnumerable<T4>> source4)
         {
             IEnumerable<T4> query = from value1 in source1()
-                                    from value2 in source2()
-                                    from value3 in source3()
-                                    from value4 in source4(value1, value2, value3)
-                                    select value4; // Define query.
+                from value2 in source2()
+                from value3 in source3()
+                from value4 in source4(value1, value2, value3)
+                select value4; // Define query.
             query.WriteLines(); // Execute query.
         }
 
         internal static void CompiledWorkflow<T1, T2, T3, T4>(
-    Func<IEnumerable<T1>> source1,
-    Func<IEnumerable<T2>> source2,
-    Func<IEnumerable<T3>> source3,
-    Func<T1, T2, T3, IEnumerable<T4>> source4)
+            Func<IEnumerable<T1>> source1,
+            Func<IEnumerable<T2>> source2,
+            Func<IEnumerable<T3>> source3,
+            Func<T1, T2, T3, IEnumerable<T4>> source4)
         {
             IEnumerable<T4> query = source1()
-                .SelectMany(value1 => source2(), (value1, value2) => new { Value1 = value1, Value2 = value2 })
-                .SelectMany(result2 => source3(), (result2, value3) => new { Result2 = result2, Value3 = value3 })
+                .SelectMany(value1 => source2(), (value1, value2) => new {Value1 = value1, Value2 = value2})
+                .SelectMany(result2 => source3(), (result2, value3) => new {Result2 = result2, Value3 = value3})
                 .SelectMany(
                     result3 => source4(result3.Result2.Value1, result3.Result2.Value2, result3.Value3),
                     (result3, value4) => value4); // Define query.
@@ -135,28 +137,28 @@ namespace GeneralThings.Monads
 
         internal static void MonadLaws()
         {
-            IEnumerable<int> source = new int[] { 0, 1, 2, 3, 4 };
+            IEnumerable<int> source = new int[] {0, 1, 2, 3, 4};
             Func<int, IEnumerable<char>> selector = int32 => new string('*', int32);
-            Func<int, IEnumerable<double>> selector1 = int32 => new double[] { int32 / 2D, Math.Sqrt(int32) };
+            Func<int, IEnumerable<double>> selector1 = int32 => new double[] {int32 / 2D, Math.Sqrt(int32)};
             Func<double, IEnumerable<string>> selector2 =
-                @double => new string[] { @double.ToString("0.0"), @double.ToString("0.00") };
+                @double => new string[] {@double.ToString("0.0"), @double.ToString("0.00")};
             const int Value = 5;
 
             // Associativity: source.SelectMany(selector1).SelectMany(selector2) == source.SelectMany(value => selector1(value).SelectMany(selector2)).
             (from value in source
-             from result1 in selector1(value)
-             from result2 in selector2(result1)
-             select result2).WriteLines();
+                from result1 in selector1(value)
+                from result2 in selector2(result1)
+                select result2).WriteLines();
             // 0.0 0.00 0.0 0.00
             // 0.5 0.50 1.0 1.00
             // 1.0 1.00 1.4 1.41
             // 1.5 1.50 1.7 1.73
             // 2.0 2.00 2.0 2.00
             (from value in source
-             from result in (from result1 in selector1(value)
-                             from result2 in selector2(result1)
-                             select result2)
-             select result).WriteLines();
+                from result in (from result1 in selector1(value)
+                    from result2 in selector2(result1)
+                    select result2)
+                select result).WriteLines();
             // 0.0 0.00 0.0 0.00
             // 0.5 0.50 1.0 1.00
             // 1.0 1.00 1.4 1.41
@@ -164,13 +166,13 @@ namespace GeneralThings.Monads
             // 2.0 2.00 2.0 2.00
             // Left unit: value.Wrap().SelectMany(selector) == selector(value).
             (from value in Value.Enumerable()
-             from result in selector(value)
-             select result).WriteLines(); // * * * * *
+                from result in selector(value)
+                select result).WriteLines(); // * * * * *
             selector(Value).WriteLines(); // * * * * *
-                                          // Right unit: source == source.SelectMany(Wrap).
+            // Right unit: source == source.SelectMany(Wrap).
             (from value in source
-             from result in value.Enumerable()
-             select result).WriteLines(); // 0 1 2 3 4
+                from result in value.Enumerable()
+                select result).WriteLines(); // 0 1 2 3 4
         }
     }
 }
