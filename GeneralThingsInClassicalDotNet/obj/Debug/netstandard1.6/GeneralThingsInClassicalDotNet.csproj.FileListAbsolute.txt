@@ -1,3 +1,0 @@
-C:\MyGithub\CategoryTheory\GeneralThingsInClassicalDotNet\bin\Debug\netstandard1.6\GeneralThingsInClassicalDotNet.deps.json
-C:\MyGithub\CategoryTheory\GeneralThingsInClassicalDotNet\obj\Debug\netstandard1.6\GeneralThingsInClassicalDotNet.csprojResolveAssemblyReference.cache
-C:\MyGithub\CategoryTheory\GeneralThingsInClassicalDotNet\obj\Debug\netstandard1.6\GeneralThingsInClassicalDotNet.AssemblyInfo.cs
