@@ -17,6 +17,20 @@ namespace GeneralThings.Functors
         {
             get
             {
+                //Tuple<bool, string> tt = null;// new Tuple<bool, string>(true, "qdf");
+                //var toto = tt?.Item1 ;//.Value.Item1;
+                //var ttt = this.factory?.Value;
+
+                //int? rrr ;//= 2;
+                //var qsdf = rrr ?.ToString() ;
+
+                //string? ns = "qsd";
+                //string s;
+
+                //Tuple<bool, bool>? t ;//= new Tuple<bool, bool>(true, false);
+                //var tto = t?.Item1;
+
+
                 if (!this.HasValue)
                 {
                     throw new InvalidOperationException($"{nameof(Optional<T>)} object must have a value.");
