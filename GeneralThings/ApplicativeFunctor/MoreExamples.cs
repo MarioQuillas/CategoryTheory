@@ -33,8 +33,8 @@ namespace GeneralThings.ApplicativeFunctor
     {
         // Multiply: Func<T1> x Func<T2> -> Func<T1 x T2>
         // Multiply: (Func<T1>, Func<T2>) -> Func<(T1, T2)>
-        public static Func<(T1, T2)> Multiply<T1, T2>(this Func<T1> source1, Func<T2> source2) =>
-            () => (source1(), source2());
+        public static Func<Tuple<T1, T2>> Multiply<T1, T2>(this Func<T1> source1, Func<T2> source2) =>
+            () => new Tuple<T1, T2>(source1(), source2());
 
         // Unit: Unit -> Func<Unit>
         public static Func<Unit> Unit(Unit unit = default(Unit)) => () => unit;
