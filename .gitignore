@@ -3,3 +3,6 @@
 GeneralThings/obj/GeneralThings.csproj.nuget.g.props
 *.cache
 .vs/CategoryTheory/v15/.suo
+*.cache
+GeneralThings/obj/GeneralThings.csproj.nuget.g.props
+*.suo
